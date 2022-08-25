@@ -24,62 +24,60 @@ using System.Text;
 
 for (int i = 10; i <= 20; i++)
 {
-    if(i%2==0 )
+    for(int j = 2; j <= i/2; j++)
     {
-        Console.WriteLine($"{i} eşittir 2 * {i/2}");
-        continue;
-    }
-    else if(i%3==0)
-    {
-        Console.WriteLine($"{i} eşittir 3 * {i / 3}");
-        continue;
+        if(i%j==0)
+        {
+            Console.WriteLine($"{i} eşittir {j} * {i / j}");
+            goto run;
+        }
     }
     Console.WriteLine($"{i} asal sayidir");
-
+run: continue;
 }
 
 #endregion
 #region Task4
 
 //Kullanıcı dışarıdan dilediği kadar sayı girecek, her sayı girdikten sonra, sayı girmeye devam edip etmeyeceği sorulacak. 
-int[] numbers = new int[0];
-int resize=1;
-string input;
+//int[] numbers = new int[0];
+//int resize=1;
+//string input;
 
-do
-{
-    Console.WriteLine("Please enter number");
-    int number=int.Parse(Console.ReadLine());
-    Array.Resize(ref numbers,resize );
-    resize++;
-    numbers[numbers.Length-1]=number;
-    Console.WriteLine("do you want to continue?y/Y");
-     input = Console.ReadLine();
-} while (input.ToLower()=="y");
-int maxDivide=0;
-int minDivide=numbers[0];
+//do
+//{
+//    Console.WriteLine("Please enter number");
+//    int number=int.Parse(Console.ReadLine());
+//    Array.Resize(ref numbers,resize );
+//    resize++;
+//    numbers[numbers.Length-1]=number;
+//    Console.WriteLine("do you want to continue?y/Y");
+//     input = Console.ReadLine();
+//} while (input.ToLower()=="y");
+//int maxOdd=0;
+//int minOdd=numbers[0];
 
-for (int i = 0; i < numbers.Length; i++)
-{
-    if (numbers[i] % 2 != 0 && maxDivide < numbers[i])
-    {
-        maxDivide = numbers[i];
+//for (int i = 0; i < numbers.Length; i++)
+//{
+//    if (numbers[i] % 2 != 0 && maxOdd < numbers[i])
+//    {
+//        maxOdd = numbers[i];
 
-    }
-    if (numbers[i] % 2 != 0 && minDivide > numbers[i])
-    {
-        minDivide = numbers[i];
-    }
+//    }
+//    if (numbers[i] % 2 != 0 && minOdd > numbers[i])
+//    {
+//        minOdd = numbers[i];
+//    }
 
-}
-if(maxDivide!=0&&minDivide!=0&&minDivide%2!=0)
-{
-    Console.WriteLine($"{maxDivide}-{minDivide}={maxDivide-minDivide}");
-}
-else
-{
-    Console.WriteLine("There are no 2 odd numbers for the transaction");
-}
+//}
+//if(maxOdd != 0&&minOdd!=0&&minOdd%2!=0)
+//{
+//    Console.WriteLine($"{maxOdd}-{minOdd}={maxOdd - minOdd}");
+//}
+//else
+//{
+//    Console.WriteLine("There are no 2 odd numbers for the transaction");
+//}
 
 
 #endregion
